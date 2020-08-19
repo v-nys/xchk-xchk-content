@@ -1,3 +1,5 @@
+import regex
+
 from xchk_core.contentviews import ContentView
 from xchk_core.strats import *
 from xchk_regex_strategies.strats import RegexCheck
@@ -25,8 +27,7 @@ class KeyElementsView(ContentView):
     uid = 'xchk_xchk_content_key_elements'
     template = 'xchk_xchk_content/key_elements.html'
     title = 'Sleutelementen van xchk'
-    conditions = [FileExistsCheck(),RegexCheck()]
+    pattern = regex.compile(r'$\s*(2|[tT][wW][eE][eE])\s*^')
+    conditions = [FileExistsCheck(),RegexCheck(pattern)]
     strat = Strategy(refusing_check=Negation(ConjunctiveCheck(conditions)),
                      accepting_check=TrueCheck())
-
- 
