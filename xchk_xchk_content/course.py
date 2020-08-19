@@ -4,5 +4,12 @@ from .contentviews import *
 
 course = Course('xchk',
                 'Xchk',
-                [(KeyElementsView,[MotivationView]),
+                [(ModularCourseMaterialView,[DependencyStructureView,InstructionsView]),
+                 (InstructionsView,[KeyElementsView]),
+                 (EssentialNonEssentialsView,[DependencyStructureView]),
+                 (DependencyStructureView,[SharedNodesView]),
+                 (SharedNodesView,[KeyElementsView]),
+                 (UndecidedStrategyView,[KeyElementsView]),
+                 (GitBenefitsView,[KeyElementsView]),
+                 (KeyElementsView,[MotivationView]),
                  (MotivationView,[])])
