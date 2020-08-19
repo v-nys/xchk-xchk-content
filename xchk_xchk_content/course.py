@@ -4,4 +4,5 @@ from .contentviews import *
 
 course = Course('xchk',
                 'Xchk',
-                [(DemoXchkView,[])])
+                [(KeyElementsView,[MotivationView]),
+                 (MotivationView,[])])

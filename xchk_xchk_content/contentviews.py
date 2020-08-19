@@ -5,7 +5,7 @@ from xchk_core.strats import *
 from xchk_regex_strategies.strats import RegexCheck
 from xchk_multiple_choice_strategies.strats import MultipleChoiceAnswerCheck, MultipleChoiceFormatCheck
 
-class DemoXchkView(ContentView):
+class MotivationView(ContentView):
      
     uid = 'xchk_xchk_content_motivation'
     template = 'xchk_xchk_content/motivation.html'
