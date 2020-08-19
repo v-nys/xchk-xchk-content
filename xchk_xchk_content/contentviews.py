@@ -91,7 +91,7 @@ class InstructionsView(ContentView):
     template = 'xchk_xchk_content/technical_requirements.html'
     title = 'Technische vereisten'
     pattern = regex.compile(r'$.*[0-9].*^',flags=regex.DOTALL)
-    chk = ConjunctiveCheck([FileExistsCheck(),Negation(RegexCheck(pattern,description="tekst met minstens één cijfer in"))])
+    chk = ConjunctiveCheck([FileExistsCheck(),Negation(RegexCheck(pattern,pattern_description="tekst met minstens één cijfer in"))])
     strat = Strategy(refusing_check=Negation(chk),
                      accepting_check=TrueCheck())
 
@@ -100,5 +100,15 @@ class ModularCourseMaterialView(ContentView):
     uid = 'xchk_xchk_content_modular_material'
     template = 'xchk_xchk_content/modular_material.html'
     title = 'Modulaire cursussen'
+    strat = Strategy(refusing_check=Negation(TrueCheck()),
+                     accepting_check=TrueCheck())
+
+class ModularChecksView(ContentView):
+
+    uid = 'xchk_xchk_content_modular_checks'
+    template = 'xchk_xchk_content/modular_checks.html'
+    title = 'Modulaire controleprocedures'
+    # TODO iets complexer illustreren
+    # bv. programma a berekent hetzelfde als programma b (Python?)
     strat = Strategy(refusing_check=Negation(TrueCheck()),
                      accepting_check=TrueCheck())
