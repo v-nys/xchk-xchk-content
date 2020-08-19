@@ -1,11 +1,13 @@
 from xchk_core.contentviews import ContentView
 from xchk_core.strats import *
+from xchk_regex_strategies.strats import RegexCheck
 from xchk_multiple_choice_strategies.strats import MultipleChoiceAnswerCheck, MultipleChoiceFormatCheck
 
 class DemoXchkView(ContentView):
      
     uid = 'xchk_xchk_content_motivation'
     template = 'xchk_xchk_content/motivation.html'
+    title = 'motivatie'
     mc_data = [("Welke uitspraak of uitspraken zijn waar?",
                 ("Studenten weten altijd precies wat verwacht wordt.",False,"Nog nooit foute bestanden gekregen? Zelfs geen foute bestandsnamen? Over het hoofd geziene leerstof?"),
                 ("Onmiddellijke feedback is effectiever dan uitgestelde feedback.",True,"Kan je twee weken na datum het gedachtenproces dat tot een fout heeft geleid nog vlot herhalen?"),
@@ -17,3 +19,14 @@ class DemoXchkView(ContentView):
     conditions = [FileExistsCheck(),MultipleChoiceFormatCheck(),_mc_answer_check]
     strat = Strategy(refusing_check=Negation(ConjunctiveCheck(conditions)),
                      accepting_check=TrueCheck())
+
+class KeyElementsView(ContentView):
+     
+    uid = 'xchk_xchk_content_key_elements'
+    template = 'xchk_xchk_content/key_elements.html'
+    title = 'Sleutelementen van xchk'
+    conditions = [FileExistsCheck(),RegexCheck()]
+    strat = Strategy(refusing_check=Negation(ConjunctiveCheck(conditions)),
+                     accepting_check=TrueCheck())
+
+ 
