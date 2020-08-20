@@ -27,7 +27,7 @@ class KeyElementsView(ContentView):
     uid = 'xchk_xchk_content_key_elements'
     template = 'xchk_xchk_content/key_elements.html'
     title = 'Sleutelementen van xchk'
-    pattern = regex.compile(r'$\s*(2|[tT][wW][eE][eE])\s*^')
+    pattern = regex.compile(r'^\s*(2|[tT][wW][eE][eE])\s*$')
     conditions = [FileExistsCheck(),RegexCheck(pattern)]
     strat = Strategy(refusing_check=Negation(ConjunctiveCheck(conditions)),
                      accepting_check=TrueCheck())
@@ -90,7 +90,7 @@ class InstructionsView(ContentView):
     uid = 'xchk_xchk_content_technical_requirements'
     template = 'xchk_xchk_content/technical_requirements.html'
     title = 'Technische vereisten'
-    pattern = regex.compile(r'$.*[0-9].*^',flags=regex.DOTALL)
+    pattern = regex.compile(r'^.*[0-9].*$',flags=regex.DOTALL)
     chk = ConjunctiveCheck([FileExistsCheck(),Negation(RegexCheck(pattern,pattern_description="tekst met minstens één cijfer in"))])
     strat = Strategy(refusing_check=Negation(chk),
                      accepting_check=TrueCheck())
