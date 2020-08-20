@@ -48,6 +48,14 @@ class UndecidedStrategyView(ContentView):
     strat = Strategy(refusing_check=TrueCheck(),
                      accepting_check=TrueCheck())
 
+class UndecidedFollowupView(ContentView):
+
+    uid = 'xchk_xchk_content_undecided_followup'
+    template = 'xchk_xchk_content/undecided_followup.html'
+    title = 'Het voordeel van de twijfel'
+    strat = Strategy(refusing_check=Negation(TrueCheck()),
+                     accepting_check=TrueCheck())
+
 class SharedNodesView(ContentView):
 
     uid = 'xchk_xchk_content_shared_nodes'

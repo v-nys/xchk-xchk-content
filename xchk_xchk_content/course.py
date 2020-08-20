@@ -4,7 +4,8 @@ from .contentviews import *
 
 course = Course('xchk',
                 'Xchk',
-                [(ModularCourseMaterialView,[DependencyStructureView,InstructionsView]),
+                [(UndecidedFollowupView,[UndecidedStrategyView]),
+                 (ModularCourseMaterialView,[DependencyStructureView,InstructionsView]),
                  (InstructionsView,[KeyElementsView]),
                  (EssentialNonEssentialsView,[DependencyStructureView]),
                  (DependencyStructureView,[SharedNodesView]),
