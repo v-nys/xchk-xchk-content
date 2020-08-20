@@ -45,8 +45,8 @@ class UndecidedStrategyView(ContentView):
     uid = 'xchk_xchk_content_undecided'
     template = 'xchk_xchk_content/undecided.html'
     title = 'Oefeningen waarover geen uitspraak gedaan kan worden'
-    strat = Strategy(refusing_check=TrueCheck(),
-                     accepting_check=TrueCheck())
+    strat = Strategy(refusing_check=Negation(TrueCheck()),
+                     accepting_check=Negation(TrueCheck()))
 
 class UndecidedFollowupView(ContentView):
 
