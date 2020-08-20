@@ -4,7 +4,7 @@ from unittest.mock import Mock, patch, MagicMock
 from xchk_core.models import SubmissionV2
 from xchk_core.templatetags.xchk_instructions import node_instructions_2_ul
 from xchk_core.strats import StratInstructions, AT_LEAST_ONE_TEXT, ALL_OF_TEXT
-from .contentviews import WhatIsGitView
+from .contentviews import *
 
 class KeyElementsViewTest(TestCase):
 
@@ -18,7 +18,7 @@ class KeyElementsViewTest(TestCase):
 
     def test_incorrect_answer_partial_match(self):
         text = 'twaalf'
-        self.assertTrue(KeyElementsView.pattern.fullmatch(text))
+        self.assertFalse(KeyElementsView.pattern.fullmatch(text))
   
 if __name__ == '__main__':
     unittest.main()
