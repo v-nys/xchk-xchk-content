@@ -120,3 +120,11 @@ class ModularChecksView(ContentView):
     # bv. programma a berekent hetzelfde als programma b (Python?)
     strat = Strategy(refusing_check=Negation(TrueCheck()),
                      accepting_check=TrueCheck())
+
+class RandomizedExercisesView(ContentView):
+
+    uid = 'xchk_xchk_content_randomized_exercises'
+    template = 'xchk_xchk_content/randomized_exercises.html'
+    title = 'Willekeurige oefeningen'
+    strat = Strategy(refusing_check=Negation(TrueCheck()),
+                     accepting_check=TrueCheck())
