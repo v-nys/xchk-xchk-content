@@ -128,3 +128,25 @@ class RandomizedExercisesView(ContentView):
     title = 'Willekeurige oefeningen'
     strat = Strategy(refusing_check=Negation(TrueCheck()),
                      accepting_check=TrueCheck())
+
+class MCDemoView(ContentView):
+
+    uid = 'xchk_xchk_content_mc_demo'
+    template =  'xchk_xchk_content/mc_demo.html'
+    title = 'Demonstratie multiple choice'
+    _mc_data = [("Rozen zijn (meestal)",
+                 ("rood",True,None),
+                 ("groen",False,"De steel misschien, maar je weet dat dat niet is wat we bedoelen..."),
+                 ("geel",False,"Gele rozen bestaan, maar zijn dat diegene die je het meeste ziet?"),
+                 ("bloemen",True,None)),
+                ("Spinazie is",
+                 ("blauw",False,"Blauwe spinazie? Dat klinkt verontrustend."),
+                 ("paars",False,"Je denkt misschien aan rode kool. Die niet echt rood is."),
+                 ("groen",True,None))] 
+    _mc_answer_check = MultipleChoiceAnswerCheck(filename=None,mc_data=_mc_data)
+    custom_data = {'rendered_mc_qs': _mc_answer_check.render()}
+    conditions = [FileExistsCheck(),MultipleChoiceFormatCheck(),_mc_answer_check]
+    strat = Strategy(refusing_check=Negation(ConjunctiveCheck(conditions)),
+                     accepting_check=TrueCheck())
+
+

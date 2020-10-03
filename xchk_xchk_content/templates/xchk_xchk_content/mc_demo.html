@@ -1,0 +1,14 @@
+
+{% extends 'checkerapp/course_content.html' %}
+{% load xchk_instructions %}
+{% load static %}
+{% block course_content %}
+<h3>Schriftelijk materiaal</h3>
+<p>Er valt niet veel te zeggen. Dit staat hier alleen maar om multiple choice vragen toe te lichten.</p>
+{% endblock %}
+
+{% block assignment %}
+{% autoescape off %}
+  {{ custom_data.rendered_mc_qs }}
+{% endautoescape %}
+{% endblock %}

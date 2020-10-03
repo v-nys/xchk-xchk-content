@@ -15,4 +15,5 @@ course = Course('xchk',
                  (UndecidedStrategyView,[KeyElementsView]),
                  (GitBenefitsView,[KeyElementsView]),
                  (KeyElementsView,[MotivationView]),
-                 (MotivationView,[])])
+                 (MotivationView,[]),
+                 (MultipleChoiceDemoView,[])])
