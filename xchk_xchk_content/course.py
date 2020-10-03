@@ -16,4 +16,4 @@ course = Course('xchk',
                  (GitBenefitsView,[KeyElementsView]),
                  (KeyElementsView,[MotivationView]),
                  (MotivationView,[]),
-                 (MCDemoView,[])])
+                 (MCDemoView,[MotivationView])])
