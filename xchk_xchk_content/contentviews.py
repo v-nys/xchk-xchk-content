@@ -135,14 +135,14 @@ class MCDemoView(ContentView):
     template =  'xchk_xchk_content/mc_demo.html'
     title = 'Demonstratie multiple choice'
     _mc_data = [("Rozen zijn (meestal)",
-                 ("rood",True,None),
+                 ("rood",True,"De kleur die je zoekt zit min of meer in de naam..."),
                  ("groen",False,"De steel misschien, maar je weet dat dat niet is wat we bedoelen..."),
                  ("geel",False,"Gele rozen bestaan, maar zijn dat diegene die je het meeste ziet?"),
-                 ("bloemen",True,None)),
+                 ("bloemen",True,"Er is niet alleen naar de kleur gevraagd. Wat zijn rozen nog?")),
                 ("Spinazie is",
                  ("blauw",False,"Blauwe spinazie? Dat klinkt verontrustend."),
                  ("paars",False,"Je denkt misschien aan rode kool. Die niet echt rood is."),
-                 ("groen",True,None))] 
+                 ("groen",True,"Denk terug aan Popeye tekenfilms. Welke kleur had de inhoud van het blik dat hij opendeed?"))] 
     _mc_answer_check = MultipleChoiceAnswerCheck(filename=None,mc_data=_mc_data)
     custom_data = {'rendered_mc_qs': _mc_answer_check.render()}
     conditions = [FileExistsCheck(),MultipleChoiceFormatCheck(),_mc_answer_check]
